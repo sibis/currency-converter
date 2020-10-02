@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+
+message RateRequest {
+	Currencies Base = 1;
+	Currencies Destination = 2;
+}
+
+message RateResponse {
+	float Rate = 1;
+}
+
+service Currency {
+	rpc GetRate(RateRequest) returns (RateResponse);
+}
+
+enum Currencies {
+	USD=0;
+	INR=1;
+	JPY=2;
+	CAD=3;
+	EUR=4;
+}
